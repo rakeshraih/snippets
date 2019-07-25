@@ -3,6 +3,7 @@
 2. Passing the aruments from the terminal, node getDataFromServer.js 5 51
 3. Throwing the error then and there, rather than writing an error handler and handling it separately 
 4. Use of ES6 syntax
+5. Floating nos are rounded off
 *******Assumption end ******/
 
 const args = process.argv.slice(2);
@@ -14,9 +15,8 @@ if (!args || args.length < 2 || isNaN(args[1]) || isNaN(args[0])) {
 
 const minRange = parseInt(args[0]);
 const maxRange = parseInt(args[1]);
-
-if (minRange > maxRange) {
-  throw 'Min range > max range!';
+if (minRange > maxRange || minRange < 0 || maxRange < 0) {
+  throw 'Valid numbers, Min range > max range && > 0!';
 }
 
 /******Mocking server data start *******/
